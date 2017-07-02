@@ -7,3 +7,13 @@
 .navbar-nav>li>a.userType:hover {
     color: #777;
 }
+.middleButton {
+    text-align: center;
+}
+.big {
+    margin-left:10px;
+    margin-right:10px;
+    font-size: 45px;
+    line-height: initial;
+    border-radius: 10px;
+}
