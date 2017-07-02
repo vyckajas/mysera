@@ -15,11 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 Auth::routes();
 
+//Home page --- Cash In & Cash Out
 Route::get('/home', 'HomeController@index')->name('home');
+//Cash In
+Route::get('/in', function () {
+    return view('in');
+});
+//Cash Out
+Route::get('/out', function () {
+    return view('out');
+});

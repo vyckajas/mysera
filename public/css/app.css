@@ -17,3 +17,11 @@
     line-height: initial;
     border-radius: 10px;
 }
+.back {
+    color: #777;
+}
+.back:hover {
+    text-decoration: none;
+    color: #333;
+}
+
