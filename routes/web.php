@@ -27,6 +27,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/in', function () {
     return view('in');
 });
+Route::post('/transaction', 'transactionController@store');
+Route::get('/in', 'HomeController@amount');
+Route::post('/in', 'HomeController@store');
 //Cash Out
 Route::get('/out', function () {
     return view('out');
