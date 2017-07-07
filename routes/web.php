@@ -23,6 +23,26 @@ Route::get('/out', function () {
 Route::post('/transaction', 'transactionController@store');
 
 
+Route::get('/all-transactions-csv', function(){
+
+    $table = \App\Transaction::all();
+    $filename = "transactions.csv";
+    $handle = fopen($filename, 'w+');
+    fputcsv($handle, array('Transaction_ID', 'User_ID', 'Operation_Amount', 'Taxes', 'Currency', 'Operation'));
+
+    foreach($table as $row) {
+        fputcsv($handle, array($row['id'], $row['user_id'], $row['amount'], $row['tax'], $row['currency'], $row['operation']));
+    }
+
+    fclose($handle);
+
+    $headers = array(
+        'Content-Type' => 'text/csv',
+    );
+
+    return Response::download($filename, 'transactions.csv', $headers);
+});
+
 
 ///////// Neaišku ar reikalingi
 Route::get('/in', 'HomeController@amount');
